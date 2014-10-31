@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A7CC7737-3871-4F14-9591-F021B32ED1D2</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Calculator</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>8BF01304E766E21C9B058C3C76C0A81CD060FE41</key>
+		<string>https://github.com/bainco/SwiftCalc.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Calculator.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>8BF01304E766E21C9B058C3C76C0A81CD060FE41</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/bainco/SwiftCalc.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>8BF01304E766E21C9B058C3C76C0A81CD060FE41</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8BF01304E766E21C9B058C3C76C0A81CD060FE41</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SwiftCalc</string>
+		</dict>
+	</array>
+</dict>
+</plist>
