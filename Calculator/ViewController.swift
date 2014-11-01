@@ -12,6 +12,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var calculatorDisplay: UILabel!
     
+    @IBOutlet weak var buttonView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         calculatorDisplay.textAlignment = .Right
@@ -23,9 +25,23 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func numberPressed(sender: AnyObject) {
+    @IBAction func buttonPressed(sender: AnyObject) {
         var number = sender.currentTitle
-        calculatorDisplay.text = calculatorDisplay.text! + number!!
+        calculatorDisplay.text =
+            calculatorDisplay.text! + number!!
+    }
+    
+    @IBAction func operatorPressed(sender: AnyObject) {
+        var number = sender.currentTitle
+        calculatorDisplay.text =
+            calculatorDisplay.text! + " " + number!! + " "
+    }
+    
+    @IBAction func calcPressed(sender: AnyObject) {
+        
+        // EVALUTE STUB
+        
+        calculatorDisplay.text = "this should be the answer!"
     }
 }
 
