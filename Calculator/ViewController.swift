@@ -36,6 +36,9 @@ class ViewController: UIViewController {
         calculatorDisplay.text =
             calculatorDisplay.text! + " " + number!! + " "
     }
+    @IBAction func clearPressed(sender: AnyObject) {
+        calculatorDisplay.text = ""
+    }
     
     @IBAction func calcPressed(sender: AnyObject) {
         
