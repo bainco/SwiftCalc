@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var buttonView: UIView!
     
+    private var operatorPressed:Bool!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         calculatorDisplay.textAlignment = .Right
@@ -26,22 +28,27 @@ class ViewController: UIViewController {
     }
 
     @IBAction func buttonPressed(sender: AnyObject) {
+        self.operatorPressed = false
         var number = sender.currentTitle
         calculatorDisplay.text =
             calculatorDisplay.text! + number!!
     }
     
     @IBAction func operatorPressed(sender: AnyObject) {
-        var number = sender.currentTitle
-        calculatorDisplay.text =
-            calculatorDisplay.text! + " " + number!! + " "
+        if(self.operatorPressed == false) {
+            self.operatorPressed = true
+            var operatorPressed = sender.currentTitle
+            calculatorDisplay.text =
+                calculatorDisplay.text! + " " + operatorPressed!! + " "
+        }
     }
     @IBAction func clearPressed(sender: AnyObject) {
+        self.operatorPressed = false
         calculatorDisplay.text = ""
     }
     
     @IBAction func calcPressed(sender: AnyObject) {
-        
+        self.operatorPressed = false
         // EVALUTE STUB
         
         calculatorDisplay.text = "this should be the answer!"
