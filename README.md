@@ -17,7 +17,7 @@ If we can fix the order of operations in the "Evaluate at the end" method, I thi
 However, that may be more trouble than it is worth for such a simple app.
 
 TODO:
-Add division functionality.
-Make PowerPoint
-Comment code
-Figure out due date
+Add division functionality,
+Make PowerPoint,
+Comment code,
+Figure out due date,
