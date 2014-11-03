@@ -14,11 +14,13 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var buttonView: UIView!
     
-    private var operatorPressed:Bool!
+    private var operatorPressed:String!
+    private var argument1:Int!
+    private var argument2:Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        calculatorDisplay.textAlignment = .Right
+        self.calculatorDisplay.textAlignment = .Right
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -28,84 +30,37 @@ class ViewController: UIViewController {
     }
 
     @IBAction func buttonPressed(sender: AnyObject) {
-        self.operatorPressed = false
         var number = sender.currentTitle
         
-        calculatorDisplay.text =
-            calculatorDisplay.text! + number!!
+        self.calculatorDisplay.text =
+            self.calculatorDisplay.text! + number!!
     }
     
     @IBAction func operatorPressed(sender: AnyObject) {
-        if(self.operatorPressed == false) {
-            self.operatorPressed = true
-            var operatorPressed = sender.currentTitle
-            calculatorDisplay.text =
-                calculatorDisplay.text! + " " + operatorPressed!! + " "
-        }
+        self.operatorPressed = sender.currentTitle
+        self.argument1 = calculatorDisplay.text!.toInt()
+        self.calculatorDisplay.text = ""
     }
+    
     @IBAction func clearPressed(sender: AnyObject) {
-        self.operatorPressed = false
-        calculatorDisplay.text = ""
+        self.calculatorDisplay.text = ""
+        self.operatorPressed = ""
+        self.argument1 = 0
+        self.argument2 = 0
     }
     
     @IBAction func calcPressed(sender: AnyObject) {
-        self.operatorPressed = false 
-        var stack: [String] = []
+        self.argument2 = calculatorDisplay.text!.toInt()
         
-        var answer:Int = 0;
-        
-        var eqn = calculatorDisplay.text!
-        var length = countElements(eqn)
-        
-        var firstArg = true;
-        
-        var firstOp = ""
-        var readChar = ""
-        var readString = "";
-        for var i = 0; i < length; i++ {
-            
-            readChar = String(Array(eqn)[i]);
-            
-            if (readChar == "+" || readChar == "-" || readChar == "*") {
-                
-                stack.append(readString)
-                stack.append(readChar)
-                readString = ""
-            }
-                
-            else if(i == (length - 1)) {
-                readString += readChar;
-                stack.append(readString);
-            }
-            else {
-                readString += readChar;
-            }
-            readString = readString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet());
+        switch self.operatorPressed {
+            case "+":
+                self.calculatorDisplay.text = "\(self.argument1 + self.argument2)"
+            case "-":
+                self.calculatorDisplay.text = "\(self.argument1 - self.argument2)"
+            case "*":
+                self.calculatorDisplay.text = "\(self.argument1 * self.argument2)"
+        default:
+            self.calculatorDisplay.text = "Error"
         }
-        
-        if (stack[stack.count - 1] == "+" ||
-            stack[stack.count - 1] == "-" ||
-            stack[stack.count - 1] == "*") {
-                stack.removeLast()
-        }
-        
-        var i = 0;
-        while (stack.count != 1) {
-            
-            if(stack[1] == "+"){
-                stack[0] = String(stack[0].toInt()! + stack[2].toInt()!)
-            }
-            else if(stack[1] == "-"){
-                stack[0] = String(stack[0].toInt()! - stack[2].toInt()!)
-            }
-            else if(stack[1] == "*"){
-                stack[0] = String(stack[0].toInt()! * stack[2].toInt()!)
-            }
-            stack.removeAtIndex(2);
-            stack.removeAtIndex(1);
-        }
-
-        answer = stack[0].toInt()!
-        calculatorDisplay.text = String(answer);
     }
 }
