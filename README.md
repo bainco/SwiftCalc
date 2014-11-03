@@ -2,6 +2,7 @@ SwiftCalc
 =========
 
 We have two working versions:
+
   One number at a time -
     Like a normal calculator, a user is only able to input one number at a time.
     We do not have to worry about order of operations.
