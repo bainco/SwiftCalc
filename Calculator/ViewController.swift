@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var buttonView: UIView!
     
+    private var operatorPressed:Bool!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         calculatorDisplay.textAlignment = .Right
@@ -26,6 +28,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func buttonPressed(sender: AnyObject) {
+        self.operatorPressed = false
         var number = sender.currentTitle
         
         calculatorDisplay.text =
@@ -33,20 +36,21 @@ class ViewController: UIViewController {
     }
     
     @IBAction func operatorPressed(sender: AnyObject) {
-        var number = sender.currentTitle
-        
-        if (calculatorDisplay.text! != "") {
+        if(self.operatorPressed == false) {
+            self.operatorPressed = true
+            var operatorPressed = sender.currentTitle
             calculatorDisplay.text =
-                calculatorDisplay.text! + " " + number!! + " ";
+                calculatorDisplay.text! + " " + operatorPressed!! + " "
         }
     }
     @IBAction func clearPressed(sender: AnyObject) {
+        self.operatorPressed = false
         calculatorDisplay.text = ""
     }
     
     @IBAction func calcPressed(sender: AnyObject) {
-        
-        var stack: [String] = [];
+        self.operatorPressed = false 
+        var stack: [String] = []
         
         var answer:Int = 0;
         
@@ -55,8 +59,8 @@ class ViewController: UIViewController {
         
         var firstArg = true;
         
-        var firstOp = "";
-        var readChar = "";
+        var firstOp = ""
+        var readChar = ""
         var readString = "";
         for var i = 0; i < length; i++ {
             
@@ -105,4 +109,3 @@ class ViewController: UIViewController {
         calculatorDisplay.text = String(answer);
     }
 }
-
