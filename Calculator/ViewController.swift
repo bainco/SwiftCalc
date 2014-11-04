@@ -88,8 +88,18 @@ class ViewController: UIViewController {
             stack[stack.count - 1] == "*") {
                 stack.removeLast()
         }
-        
         var i = 0;
+        while (i < stack.count){
+            if(stack[i] == "*"){
+                stack[i - 1] = String(stack[i - 1].toInt()! * stack[i + 1].toInt()!)
+                i--
+                stack.removeAtIndex(i+2)
+                stack.removeAtIndex(i+1)
+            }
+            i++
+        }
+        
+        i = 0;
         while (stack.count != 1) {
             
             if(stack[1] == "+"){
@@ -97,9 +107,6 @@ class ViewController: UIViewController {
             }
             else if(stack[1] == "-"){
                 stack[0] = String(stack[0].toInt()! - stack[2].toInt()!)
-            }
-            else if(stack[1] == "*"){
-                stack[0] = String(stack[0].toInt()! * stack[2].toInt()!)
             }
             stack.removeAtIndex(2);
             stack.removeAtIndex(1);
