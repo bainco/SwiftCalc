@@ -10,11 +10,9 @@ We have two working versions:
     
   Evaluate at the end -
     More like an Excel spread sheet, a user enters an entire expression then it is solved.
-    Order of operations is a problem.
     More complex code, demonstrates many more of Swift's features.
     
 If we can fix the order of operations in the "Evaluate at the end" method, I think we should demo that one.
-However, that may be more trouble than it is worth for such a simple app.
 
 TODO:
 Add division functionality,
